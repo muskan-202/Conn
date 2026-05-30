@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    CONN — Landing Page Interactivity
    ═══════════════════════════════════════════════════════════ */
-
+console.log("HOME JS LOADED");
 (function () {
   'use strict';
 
@@ -392,6 +392,30 @@
       }
     });
   }
+  function initScrollButtons() {
+  const topBtn = document.getElementById('scrollTopBtn');
+  const bottomBtn = document.getElementById('scrollBottomBtn');
+
+  if (!topBtn || !bottomBtn) return;
+
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  bottomBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+}
 
   // ─── Razorpay Checkout (Landing) ───
   function initRazorpayLanding() {
@@ -578,6 +602,32 @@
       });
     }
   }
+  const topBtn = document.getElementById("scrollTopBtn");
+const bottomBtn = document.getElementById("scrollBottomBtn");
+
+if (topBtn && bottomBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  });
+
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  bottomBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  });
+}
 
   // ─── Init ───
   document.addEventListener('DOMContentLoaded', () => {
@@ -596,5 +646,6 @@
     initTypewriter();
     initMagneticButtons();
     initVanillaTilt();
+    initScrollButtons();
   });
 })();

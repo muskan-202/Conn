@@ -372,6 +372,35 @@
     div.textContent = str;
     return div.innerHTML;
   }
+  // ─── Scroll Buttons ───
+function initScrollButtons() {
+  const topBtn = document.getElementById('scrollTopBtn');
+  const bottomBtn = document.getElementById('scrollBottomBtn');
+
+  if (!topBtn || !bottomBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      topBtn.style.display = 'block';
+    } else {
+      topBtn.style.display = 'none';
+    }
+  });
+
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  bottomBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  });
+}
 
   // ─── Init ───
   document.addEventListener('DOMContentLoaded', async () => {
@@ -379,5 +408,6 @@
     initParticles();
     renderProfile();
     renderLinks();
+     initScrollButtons();
   });
 })();
