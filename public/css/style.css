@@ -740,6 +740,6 @@ input, textarea, select {
 }
 
 ::-moz-selection {
-  background: #a855f7;
-  color: #ffffff;
+  background: #a855f7 !important;
+  color: #ffffff !important;
 }
