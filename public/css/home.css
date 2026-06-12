@@ -73,6 +73,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .navbar-logo {
@@ -111,7 +112,9 @@
 
 .navbar-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 24px;
+  margin-left: 32px;
 }
 
 .navbar-links a {
@@ -127,7 +130,8 @@
 
 .navbar-actions {
   display: flex;
-  gap: 10px;
+  align-items: center;
+   gap: 16px;
 }
 
 .btn-nav {
